@@ -1,3 +1,21 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content
+  }
+}
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
@@ -60,6 +78,12 @@ body {
         text-transform: uppercase;
       }
 
+      .errMessage {
+        text-align: center;
+        font-size: 14px;
+        color: #ff0000;
+      }
+
       label {
         display: flex;
         align-items: center;
@@ -96,7 +120,12 @@ body {
     border-radius: 12px;
     overflow: hidden;
 
+    @include tablet {
+      width: 90%;
+    }
+
     .sidebar {
+      position: relative;
       flex: 1;
       background-color: #3e3c61;
       overflow: auto;
@@ -113,6 +142,10 @@ body {
         .logo {
           font-weight: bold;
           text-transform: capitalize;
+
+          @include tablet {
+            display: none;
+          }
         }
 
         .user {
@@ -139,6 +172,15 @@ body {
             outline: none;
             cursor: pointer;
             border-radius: 6px;
+
+            @include tablet {
+              position: absolute;
+              bottom: 10px;
+              width: 90%;
+              padding: 10px 8px;
+              text-transform: uppercase;
+              font-weight: bold;
+            }
           }
         }
       }
@@ -278,9 +320,13 @@ body {
           &.owner {
             flex-direction: row-reverse;
 
-            p {
-              background-color: #8da4f1;
-              color: #fff;
+            .message-content {
+              align-items: flex-end;
+
+              p {
+                background-color: #8da4f1;
+                color: #fff;
+              }
             }
           }
         }
