@@ -1,9 +1,8 @@
 import {useContext, useState} from "react";
-import {doc, updateDoc, arrayUnion, Timestamp, setDoc, serverTimestamp} from "firebase/firestore";
-import {v4 as uuid} from 'uuid';
-import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
-import {updateProfile} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
+import {doc, updateDoc, arrayUnion, Timestamp, serverTimestamp} from "firebase/firestore";
+import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
+import {v4 as uuid} from 'uuid';
 
 import Img from '../img/img.png';
 import Attach from '../img/attach.png';
